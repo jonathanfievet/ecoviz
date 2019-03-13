@@ -20,6 +20,10 @@ SPDX-License-Identifier: EPL-2.0
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Members
       </a>
+      <a [routerLink]=" ['./organizations'] "
+         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Organization
+      </a>
       <a [routerLink]=" ['./settings'] " [hidden]="!authService.isAdmin()"
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         <i class="fa fa-cog"></i>
