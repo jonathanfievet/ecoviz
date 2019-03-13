@@ -15,6 +15,8 @@ import {
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
+import {OrganizationService} from "../../../services/organization-service";
+import {Organization} from "../../../models/organization";
   
   @Component({
     selector: 'organization-list',
@@ -22,11 +24,16 @@ import { Router } from '@angular/router';
     templateUrl: './organization-list.component.html'
   })
   export class OrganizationListComponent implements OnInit {
+
+    public organizations: Organization[];
     
-    constructor(
-        private router: Router
-    ) {}
+    constructor(private router: Router, private organizationService: OrganizationService) {}
   
-    public ngOnInit() {}
+    public ngOnInit() {
+      this.organizationService.getOrganizations().then(organizations => {
+        console.log(organizations);
+        this.organizations = organizations;
+      });
+    }
   
 }
