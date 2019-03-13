@@ -22,8 +22,6 @@ import { Router } from '@angular/router';
     templateUrl: './organization-list.component.html'
   })
   export class OrganizationListComponent implements OnInit {
-  
-    private loginForm: FormGroup;
     
     constructor(
         private router: Router
