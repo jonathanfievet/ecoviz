@@ -37,6 +37,44 @@ export class Organization {
     getUserTags() {
         return this.tags.filter((t) => t.id.startsWith('ecoviz:tag'));
     }
+
+    getLocationsAsString() {
+      let locations = '';
+
+      for(let i = 0; i < this.locations.length; i++) {
+        let location = this.locations[i];
+
+        if (location.street)
+          locations += ` ${location.street}`;
+
+        if (location.zipCode)
+          locations += ` ${location.zipCode}`;
+
+        if (location.city)
+          locations += ` ${location.city}`;
+
+        if (location.country)
+          locations += ` ${location.country}`;
+
+        if (i != this.locations.length - 1)
+          locations += ','
+      }
+      return locations;
+    }
+
+  getTagsAsString() {
+    let tags = '';
+
+    for(let i = 0; i < this.tags.length; i++) {
+      let tag = this.tags[i];
+
+      tags += ` ${tag.name}`
+
+      if (i != this.tags.length - 1)
+        tags += ','
+    }
+    return tags;
+  }
     
     static fromApi(data: any): Organization{
         let member = new Organization();
