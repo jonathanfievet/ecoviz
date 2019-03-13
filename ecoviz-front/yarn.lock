@@ -34,11 +34,21 @@
     "@angular-devkit/core" "0.7.3"
     rxjs "^6.0.0"
 
-"@angular/animations@^6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-6.1.3.tgz#c7b1cf407e5087a499532999cb412a546f9ba855"
+"@angular/animations@^7.2.9":
+  version "7.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-7.2.9.tgz#1bfacb76dfd80656e28edb4efdfd3154e56f1c29"
+  integrity sha512-cdIf/UWwhNlw6Ep3pRxRk12F8q/GyTbcHDF4qbgg7lZEDPYS32KS1lpHY1pgSuSOIPZUT+iLPOxAZ6cu7Am1vA==
   dependencies:
     tslib "^1.9.0"
+
+"@angular/cdk@^7.3.4":
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-7.3.4.tgz#b9d8c62cdd24fa6517dd3ae68c78632b1525d35f"
+  integrity sha512-cHl1o7obogCO3Nxf9n8MrXpfHa7AH1QNX2BY+bftYBTHW++YJe+qAwkwWLVqnJD9TQE2OpiR058zoJU20khM/g==
+  dependencies:
+    tslib "^1.7.1"
+  optionalDependencies:
+    parse5 "^5.0.0"
 
 "@angular/cli@^6.1.3":
   version "6.1.3"
@@ -92,6 +102,13 @@
   version "6.1.3"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-6.1.3.tgz#d8ddf7eabfe39b2f5922893a4ae71c3b9c93b4f1"
 
+"@angular/material@^7.3.4":
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-7.3.4.tgz#a0d3fc14bf4c165944e3f1ddc71f7c685b8d4ef3"
+  integrity sha512-UWS4Kd3AqJBtAJRds4hhPNez9k1rkWhd6/E17pfcH6KWxP3Pi7tcubaSqoDRGHVbr/QegDn1SOoRokJxLYDn2g==
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/platform-browser-dynamic@^6.1.3":
   version "6.1.3"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-6.1.3.tgz#108c42b7eeee57325b686008323d8ddc46addd8c"
@@ -126,9 +143,10 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@asymmetrik/ngx-leaflet/-/ngx-leaflet-4.0.0.tgz#9e8b991b13e433de8bf3d3163aea02e5e1658f1d"
 
-"@atago0129/d3-v4-contextmenu@git://github.com/atago0129/d3-v4-contextmenu.git":
-  version "1.1.0"
-  resolved "git://github.com/atago0129/d3-v4-contextmenu.git#ecf4828d70d55a108117c6ca4f56dd915f407706"
+"@atago0129/d3-v4-contextmenu@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@atago0129/d3-v4-contextmenu/-/d3-v4-contextmenu-1.2.0.tgz#f303138780981a0260b7cf8ab8b4904be8c04ade"
+  integrity sha512-v7AAoPeJG+5mAbrBKZoWHuYApG5jTYGOjNEkMKX5W0vXqB3OjhpdQLZEaSWCJY8JtSUx0xwrHPNusJYYYnfhgA==
   dependencies:
     d3 "^4.10.0"
 
@@ -6178,6 +6196,11 @@ parse5@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
 
+parse5@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
+  integrity sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==
+
 parseqs@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/parseqs/-/parseqs-0.0.5.tgz#d5208a3738e46766e291ba2ea173684921a8b89d"
@@ -8294,7 +8317,7 @@ tsickle@^0.32.1:
     source-map "^0.6.0"
     source-map-support "^0.5.0"
 
-tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 

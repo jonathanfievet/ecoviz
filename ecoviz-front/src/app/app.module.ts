@@ -7,6 +7,10 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  ******************************************************************************/
+import { MatTableModule } from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -117,6 +121,10 @@ interface StoreType {
      * This is a simple example, a big app should probably implement some logic
      */
     ...environment.showDevModule ? [ ] : [],
+    MatTableModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule
   ],
   //Don't forget to add the component to entryComponents section
   entryComponents: [

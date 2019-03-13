@@ -7,33 +7,30 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  ******************************************************************************/
-import {
-    Component,
-    OnInit
-  } from '@angular/core';
-  
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
 import {OrganizationService} from "../../../services/organization-service";
 import {Organization} from "../../../models/organization";
-  
-  @Component({
-    selector: 'organization-list',
-    styleUrls: [ './organization-list.component.scss' ],
-    templateUrl: './organization-list.component.html'
-  })
-  export class OrganizationListComponent implements OnInit {
 
-    public organizations: Organization[];
-    
-    constructor(private router: Router, private organizationService: OrganizationService) {}
-  
-    public ngOnInit() {
-      this.organizationService.getOrganizations().then(organizations => {
-        console.log(organizations);
-        this.organizations = organizations;
-      });
-    }
-  
+@Component({
+  selector: 'organization-list',
+  styleUrls: [ './organization-list.component.scss' ],
+  templateUrl: './organization-list.component.html'
+})
+export class OrganizationListComponent implements OnInit {
+
+  public organizations: Organization[];
+  public displayedColumns = ['name', 'locations', 'tags', 'options']
+
+  constructor(private router: Router, private organizationService: OrganizationService) {}
+
+  public ngOnInit() {
+    this.organizationService.getOrganizations().then(organizations => {
+      console.log(organizations)
+      this.organizations = organizations
+    });
+  }
+
 }
