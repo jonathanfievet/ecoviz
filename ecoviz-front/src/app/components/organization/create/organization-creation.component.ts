@@ -41,7 +41,7 @@ import { Observable } from 'rxjs';
         country: new FormControl(),
         longitude: new FormControl(),
         latitude: new FormControl(),
-        tags: new FormControl()
+        tagsSelect: new FormControl()
       });
     }
 

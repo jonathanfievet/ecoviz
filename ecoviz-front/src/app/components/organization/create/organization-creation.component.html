@@ -7,83 +7,59 @@ SPDX-License-Identifier: EPL-2.0
 -->
 <div class="container">
     <div class="notification">
+      <mat-card style="margin-bottom:5px">
+        <h2>Create an organization</h2>
+      </mat-card>
 
+      <mat-card>
         <form [formGroup]="organizationForm">
-            <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                    <input formControlName="name" class="input" type="text" placeholder="Name">
-                </div>
-            </div>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="name" type="text" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="description"  type="textarea" placeholder="Description">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="street"  type="text" placeholder="Street">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="city"  type="text" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="zip_code"  type="text" placeholder="Zip Code">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="country"  type="text" placeholder="Country">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="longitude"  type="text" placeholder="Longitude">
+          </mat-form-field>
 
 
-            <div class="field">
-                <label class="label">Description</label>
-                <div class="control">
-                    <input formControlName="description" class="input" type="textarea" placeholder="Description">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Street</label>
-                <div class="control">
-                    <input formControlName="street" class="input" type="text" placeholder="Street">
-                </div>
-            </div>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="latitude"  type="text" placeholder="Latitude">
+          </mat-form-field>
 
 
-            <div class="field">
-                <label class="label">City</label>
-                <div class="control">
-                    <input formControlName="city" class="input" type="text" placeholder="City">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Zip Code</label>
-                <div class="control">
-                    <input formControlName="zip_code" class="input" type="text" placeholder="Zip Code">
-                </div>
-            </div>
+          <mat-form-field>
+            <mat-select placeholder="Tags" formControlName="tagsSelect" multiple>
+              <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br/>
+          <br/>
 
+          <button mat-raised-button color="primary" type="submit" [disabled]="!organizationForm.valid">Submit</button>
 
-            <div class="field">
-                <label class="label">Country</label>
-                <div class="control">
-                    <input formControlName="country" class="input" type="text" placeholder="Country">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Longitude</label>
-                <div class="control">
-                    <input formControlName="longitude" class="input" type="text" placeholder="Longitude">
-                </div>
-            </div>
-
-
-            <div class="field">
-                <label class="label">Latitude</label>
-                <div class="control">
-                    <input formControlName="latitude" class="input" type="text" placeholder="Latitude">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Tags</label>
-                <div class="control">
-                    <select formControlName="tags" class="input" multiple>
-                        <option *ngFor="let tag of tags" [value]="tag">{{ tag.name }}</option>
-                    </select>
-                </div>
-            </div>
-
-
-            <div class="field is-grouped">
-                <div class="control">
-                    <button type="submit" [disabled]="!organizationForm.valid" class="button is-link">Submit</button>
-                </div>
-            </div>
 
         </form>
+      </mat-card>
 
     </div>
 </div>

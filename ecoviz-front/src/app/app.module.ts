@@ -60,8 +60,10 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { defaultSimpleModalOptions } from 'ngx-simple-modal/dist/simple-modal/simple-modal-options';
 import { LoginActivate } from './app.login.provider';
-import {OrganizationCreationComponent} from "./components/organization/create";
-import {OrganizationListComponent} from "./components/organization/organization-list";
+import { OrganizationCreationComponent } from "./components/organization/create";
+import { OrganizationListComponent } from "./components/organization/organization-list";
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -92,7 +94,7 @@ interface StoreType {
     AddressLookupComponent,
     EditModalComponent,
     FilterTagsPipe,
-    OrganizationCreationComponent
+    OrganizationCreationComponent,
     FilterTagsPipe,
     OrganizationListComponent
   ],
@@ -127,7 +129,9 @@ interface StoreType {
     MatTableModule,
     MatCardModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule
   ],
   //Don't forget to add the component to entryComponents section
   entryComponents: [
