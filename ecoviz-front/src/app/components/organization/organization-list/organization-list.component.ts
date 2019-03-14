@@ -28,10 +28,7 @@ export class OrganizationListComponent implements OnInit {
   constructor(private router: Router, private organizationService: OrganizationService, private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.organizationService.getOrganizations().then(organizations => {
-      console.log(organizations)
-      this.loadOrganizations()
-    });
+    this.loadOrganizations();
   }
 
   private loadOrganizations() {
