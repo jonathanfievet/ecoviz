@@ -7,7 +7,7 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  ******************************************************************************/
-import { MatTableModule } from '@angular/material';
+import {MatDialogModule, MatTableModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
@@ -64,6 +64,8 @@ import { OrganizationCreationComponent } from "./components/organization/create"
 import { OrganizationListComponent } from "./components/organization/organization-list";
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import {ConfirmDeleteOrganizationModalComponent, OrganizationListComponent} from "./components/organization/organization-list";
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -96,7 +98,8 @@ interface StoreType {
     FilterTagsPipe,
     OrganizationCreationComponent,
     FilterTagsPipe,
-    OrganizationListComponent
+    OrganizationListComponent,
+    ConfirmDeleteOrganizationModalComponent
   ],
   /**
    * Import Angular's modules.
@@ -131,13 +134,15 @@ interface StoreType {
     MatGridListModule,
     MatButtonModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   //Don't forget to add the component to entryComponents section
   entryComponents: [
     TagsModalComponent,
     LinkComponent,
-    EditModalComponent
+    EditModalComponent,
+    ConfirmDeleteOrganizationModalComponent
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

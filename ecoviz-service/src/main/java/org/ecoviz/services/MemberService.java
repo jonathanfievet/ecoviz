@@ -247,7 +247,19 @@ public class MemberService {
 	}
 	
 	public void deleteOrganization(String id) {
-	    organizationRepository.deleteById(id);
+		Organization organizationToDelete = null;
+
+		// Have to do this trick because #findById doesn't work...
+		for (Organization organization : organizationRepository.findAll()) {
+			if (organization.getId().equals(id)) {
+				organizationToDelete = organization;
+			}
+		}
+
+		if (organizationToDelete != null) {
+			organizationRepository.deleteByName(organizationToDelete.getName());
+			System.out.println("Deleted " + organizationToDelete.getName());
+		}
 	}
 	
 	///////////////////////////////////////////////////
