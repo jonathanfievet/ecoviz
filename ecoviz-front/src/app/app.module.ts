@@ -7,7 +7,7 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  ******************************************************************************/
-import { MatTableModule } from '@angular/material';
+import {MatDialogModule, MatTableModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
@@ -60,7 +60,7 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { defaultSimpleModalOptions } from 'ngx-simple-modal/dist/simple-modal/simple-modal-options';
 import { LoginActivate } from './app.login.provider';
-import {OrganizationListComponent} from "./components/organization/organization-list";
+import {ConfirmDeleteOrganizationModalComponent, OrganizationListComponent} from "./components/organization/organization-list";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -91,7 +91,8 @@ interface StoreType {
     AddressLookupComponent,
     EditModalComponent,
     FilterTagsPipe,
-    OrganizationListComponent
+    OrganizationListComponent,
+    ConfirmDeleteOrganizationModalComponent
   ],
   /**
    * Import Angular's modules.
@@ -124,13 +125,15 @@ interface StoreType {
     MatTableModule,
     MatCardModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   //Don't forget to add the component to entryComponents section
   entryComponents: [
     TagsModalComponent,
     LinkComponent,
-    EditModalComponent
+    EditModalComponent,
+    ConfirmDeleteOrganizationModalComponent
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
