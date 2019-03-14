@@ -30,6 +30,13 @@ export class OrganizationListComponent implements OnInit {
   ngOnInit() {
     this.organizationService.getOrganizations().then(organizations => {
       console.log(organizations)
+      this.loadOrganizations()
+    });
+  }
+
+  private loadOrganizations() {
+    this.organizationService.getOrganizations().then(organizations => {
+      console.log(organizations)
       this.organizations = organizations
     });
   }
@@ -39,7 +46,10 @@ export class OrganizationListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log("delete")
+        this.organizationService.deleteOrganization(organization).subscribe(() => {
+          console.log("Delete organization complete")
+          this.loadOrganizations()
+        });
       }
     });
   }
