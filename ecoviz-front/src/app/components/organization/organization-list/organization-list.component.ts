@@ -26,11 +26,16 @@ export class OrganizationListComponent implements OnInit {
 
   constructor(private router: Router, private organizationService: OrganizationService) {}
 
-  public ngOnInit() {
+  ngOnInit() {
     this.organizationService.getOrganizations().then(organizations => {
       console.log(organizations)
       this.organizations = organizations
     });
+  }
+
+  deleteOrganization(organization: Organization) {
+    console.log("delete")
+    console.log(organization)
   }
 
 }
