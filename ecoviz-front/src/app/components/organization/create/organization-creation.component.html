@@ -9,26 +9,6 @@ SPDX-License-Identifier: EPL-2.0
     <div class="notification">
 
         <form [formGroup]="organizationForm">
-
-            <p [hidden]="!badCredentials">Bad credentials</p>
-
-
-            <!-- Organization 
-                id    String
-                name    String
-                description    String
-                locations    String[]
-                tags    String[] 
-
-                Location
-                    id    String
-                    street    String
-                    city    String
-                    zip_code    String
-                    country    String
-                    longitude    Double
-                    latitude    Double-->
-            <!-- Organization -->
             <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
@@ -91,7 +71,7 @@ SPDX-License-Identifier: EPL-2.0
                 <label class="label">Tags</label>
                 <div class="control">
                     <select formControlName="tags" class="input" multiple>
-                        <option *ngfor="let tag of tags" value="{{ tag }}">{{ tag }}</option> 
+                        <option *ngFor="let tag of tags" [value]="tag">{{ tag.name }}</option>
                     </select>
                 </div>
             </div>

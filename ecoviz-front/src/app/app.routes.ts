@@ -13,13 +13,14 @@ import { MembersComponent } from './components/members';
 import { NoContentComponent } from './components/no-content';
 import { LoginComponent } from './components/login';
 import { LoginActivate } from './app.login.provider';
-import { OrganizationCreationComponent } from './components/organization/organization-creation'
+import { OrganizationCreationComponent } from './components/organization/create';
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent, canActivate:[LoginActivate] },
   { path: 'members', component: MembersComponent, canActivate:[LoginActivate] },
   { path: 'login', component: LoginComponent },
   { path: 'settings', loadChildren: '../app/modules/settings#SettingsModule', canActivate:[LoginActivate] },
+  { path: 'organization/create', component: OrganizationCreationComponent , canActivate:[LoginActivate] },
   { path: '**',    component: NoContentComponent },
-  { path: 'organization/create', component: OrganizationCreationComponent },
+
 ];

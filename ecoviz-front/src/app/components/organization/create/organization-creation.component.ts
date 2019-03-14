@@ -15,7 +15,8 @@ import {
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
-import { TagService } from '../../services/tag-service'
+import { TagService } from '../../../services/tag-service';
+import { Observable } from 'rxjs';
 
   @Component({
     selector: 'organization-creation',
@@ -24,16 +25,31 @@ import { TagService } from '../../services/tag-service'
   })
   export class OrganizationCreationComponent implements OnInit {
 
-    private organizationForm: FormGroup;
-
-    public tags: any[]; 
+    public tags: any[];
+    public organizationForm: FormGroup;
 
     constructor(
-        private router: Router
-    ) {}
+        private router: Router,
+        private tagService: TagService
+    ) {
+      this.organizationForm = new FormGroup({
+        name: new FormControl(),
+        description: new FormControl(),
+        street: new FormControl(),
+        city: new FormControl(),
+        zip_code: new FormControl(),
+        country: new FormControl(),
+        longitude: new FormControl(),
+        latitude: new FormControl(),
+        tags: new FormControl()
+      });
+    }
 
     public ngOnInit() {
-      tags = TagService.getTags();
+      this.tagService.getTags().then(tags => {
+        console.log(tags);
+        this.tags = tags;
+      });
     }
 
 }

@@ -56,6 +56,7 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { defaultSimpleModalOptions } from 'ngx-simple-modal/dist/simple-modal/simple-modal-options';
 import { LoginActivate } from './app.login.provider';
+import {OrganizationCreationComponent} from "./components/organization/create";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -85,7 +86,8 @@ interface StoreType {
     LinkComponent,
     AddressLookupComponent,
     EditModalComponent,
-    FilterTagsPipe
+    FilterTagsPipe,
+    OrganizationCreationComponent
   ],
   /**
    * Import Angular's modules.

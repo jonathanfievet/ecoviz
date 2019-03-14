@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 import { environment } from 'environments/environment';
 import { Tag } from '../../models/tag.model';
 import { filter, map, flatMap, tap } from 'rxjs/operators';
+import {Organization} from "../../models/organization";
 
 @Injectable()
 export class TagService {
@@ -45,8 +46,28 @@ export class TagService {
         return false;
     }
 
-    getTags(): Observable<any> {
+    _getTags(): Observable<any> {
         return this.http.get(environment.apiUrl + '/api/tags');
     }
+
+    getTags (): Promise<Tag[]> {
+
+      return new Promise<Tag[]>((resolve, reject) => {
+
+        this._getTags().subscribe(
+          (tags: Array<any>) => {
+            let result = [];
+
+            for(let t of tags) {
+              result.push(new Tag(t.id, t.name));
+            }
+
+            resolve(result);
+          },
+          err => reject('Error while fetching data' + err)
+        );
+      });
+
+  }
 
 }
