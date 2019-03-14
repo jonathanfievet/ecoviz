@@ -10,7 +10,8 @@ require('zone.js/dist/long-stack-trace-zone');
 
 export const environment: Environment = {
   production: false,
-  apiUrl: apiUrl.url,
+  // apiUrl: apiUrl.url,
+  apiUrl: "http://172.16.85.195:8083/ecoviz-service-1.0.1",
   showDevModule: true,
 
   /** Angular debug tools in the dev console
