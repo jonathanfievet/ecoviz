@@ -23,5 +23,6 @@ public interface OrganizationRepository extends Repository<Organization, String>
     
     public List<Organization> findAll();
     public Optional<Organization> findByName(String name);
-    
+    public void deleteByName(String name);
+
 }
