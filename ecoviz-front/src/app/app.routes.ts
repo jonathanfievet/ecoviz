@@ -13,7 +13,8 @@ import { MembersComponent } from './components/members';
 import { NoContentComponent } from './components/no-content';
 import { LoginComponent } from './components/login';
 import { LoginActivate } from './app.login.provider';
-import {OrganizationListComponent} from "./components/organization/organization-list";
+import { OrganizationCreationComponent } from './components/organization/create';
+import { OrganizationListComponent } from "./components/organization/organization-list";
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent, canActivate:[LoginActivate] },
@@ -21,5 +22,6 @@ export const ROUTES: Routes = [
   { path: 'organizations', component: OrganizationListComponent, canActivate:[LoginActivate] },
   { path: 'login', component: LoginComponent },
   { path: 'settings', loadChildren: '../app/modules/settings#SettingsModule', canActivate:[LoginActivate] },
+  { path: 'organization/create', component: OrganizationCreationComponent , canActivate:[LoginActivate] },
   { path: '**',    component: NoContentComponent },
 ];

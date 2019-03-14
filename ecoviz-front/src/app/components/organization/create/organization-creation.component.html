@@ -1,0 +1,65 @@
+<!--
+Copyright (C) 2018 Eclipse Foundation
+This program and the accompanying materials are made
+available under the terms of the Eclipse Public License 2.0
+which is available at https://www.eclipse.org/legal/epl-2.0/
+SPDX-License-Identifier: EPL-2.0
+-->
+<div class="container">
+    <div class="notification">
+      <mat-card style="margin-bottom:5px">
+        <h2>Create an organization</h2>
+      </mat-card>
+
+      <mat-card>
+        <form [formGroup]="organizationForm">
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="name" type="text" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="description"  type="textarea" placeholder="Description">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="street"  type="text" placeholder="Street">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="city"  type="text" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="zip_code"  type="text" placeholder="Zip Code">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="country"  type="text" placeholder="Country">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="longitude"  type="text" placeholder="Longitude">
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="latitude"  type="text" placeholder="Latitude">
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-select placeholder="Tags" formControlName="tagsSelect" multiple>
+              <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br/>
+          <br/>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="!organizationForm.valid">Submit</button>
+
+
+        </form>
+      </mat-card>
+
+    </div>
+</div>
