@@ -80,6 +80,11 @@ public class MemberService {
 	    }
 	}
 
+	/**
+	 * Add a new Organization in the database
+	 *
+	 * @param Organization organization
+	 */
 	public void saveOrganization(Organization organization) {
 		organizationRepository.save(organization);
 	}

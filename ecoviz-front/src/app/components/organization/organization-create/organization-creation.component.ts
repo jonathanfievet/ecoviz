@@ -49,6 +49,10 @@ import {Organization} from "../../../models/organization";
       });
     }
 
+    /*
+     * function called on the initialization of the page
+     * Get all the tags present in the database
+     */
     public ngOnInit() {
       this.tagService.getTags().then(tags => {
         console.log(tags);
@@ -56,6 +60,13 @@ import {Organization} from "../../../models/organization";
       });
     }
 
+    /*
+     * function called on the onSubmit of the creation organization's form
+     * Call the createOrganization function to save a new Organization
+     * And navigate to the organizations list's page
+     *
+     * @Param NgForm f
+     */
     public onSubmit(f: NgForm) {
       console.log(f.value);
       this.organizationService.createOrganization(f.value).subscribe((data: any) => console.log("Create an Organization"));

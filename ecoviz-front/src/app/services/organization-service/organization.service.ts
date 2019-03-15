@@ -58,11 +58,21 @@ export class OrganizationService {
     split(organizationId: string) {
         return this.http.post(environment.apiUrl + '/api/organizations/' + organizationId + '/split', {});
     }
-    
+
+    /*
+     * Call the back end function to delete an organization
+     *
+     * @Param Organization member
+     */
     deleteOrganization(member: Organization) {
         return this.http.delete(environment.apiUrl + '/api/organizations/' + member.id);
     }
 
+    /*
+     * Call the back end function to create an organization
+     *
+     * @Param Any values
+     */
     createOrganization(values: any) {
       return this.http.post(environment.apiUrl + '/api/organizations/create', values);
     }

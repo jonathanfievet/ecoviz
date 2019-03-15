@@ -31,6 +31,9 @@ export class OrganizationListComponent implements OnInit {
     this.loadOrganizations();
   }
 
+  /*
+   * Call the getOrganization function to get all the organizations from the database
+   */
   private loadOrganizations() {
     this.organizationService.getOrganizations().then(organizations => {
       console.log(organizations)
@@ -38,6 +41,12 @@ export class OrganizationListComponent implements OnInit {
     });
   }
 
+  /*
+   * function called on the onClick of the delete button
+   * Delete an organization
+   *
+   * @Param Organization organization
+   */
   deleteOrganization(organization: Organization) {
     const dialogRef = this.dialog.open(ConfirmDeleteOrganizationModalComponent, {width: '250px', data: organization});
 
@@ -51,6 +60,11 @@ export class OrganizationListComponent implements OnInit {
     });
   }
 
+  /*
+   * function called on the onClick of the create button
+   * Redirect to the create's page
+   *
+   */
   redirectToCreate()
   {
     this.router.navigate(['organization/create']);
