@@ -80,6 +80,10 @@ public class MemberService {
 	    }
 	}
 
+	public void saveOrganization(Organization organization) {
+		organizationRepository.save(organization);
+	}
+
 	public void updateOrganization(String organizationId, Organization organization) {
 		Optional<Organization> optOrg = organizationRepository.findById(organizationId);
 

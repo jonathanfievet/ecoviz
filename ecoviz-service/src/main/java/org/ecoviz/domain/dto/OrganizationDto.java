@@ -16,9 +16,11 @@ public class OrganizationDto {
     
     private String name;
     private String memberType;
+    private String description;
         
     private String id;
     private List<AddressDto> locations = new LinkedList<>();
+    private List<TagDto> tags = new LinkedList<>();
     
     public void setId(String id) {
         this.id = id;
@@ -26,6 +28,14 @@ public class OrganizationDto {
     
     public String getId() {
         return id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
     
     public void setLocations(List<AddressDto> locations) {
@@ -38,6 +48,18 @@ public class OrganizationDto {
     
     public void addLocation(AddressDto location) {
         locations.add(location);
+    }
+
+    public void setTags(List<TagDto> tags) {
+        this.tags = tags;
+    }
+
+    public List<TagDto> getTags() {
+        return tags;
+    }
+
+    public void addTag(TagDto tag) {
+        tags.add(tag);
     }
 
     public void setName(String name) {

@@ -12,6 +12,7 @@ package org.ecoviz.rest;
 import java.io.IOException;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -30,8 +31,13 @@ import org.ecoviz.domain.Location;
 import org.ecoviz.domain.Organization;
 import org.ecoviz.domain.Tag;
 import org.ecoviz.domain.dto.OrganizationDto;
+import org.ecoviz.domain.dto.AddressDto;
+import org.ecoviz.domain.dto.TagDto;
 import org.ecoviz.services.MemberService;
 import org.ecoviz.services.OrganizationService;
+import javax.json.JsonObject;
+import javax.json.JsonArray;
+import javax.json.JsonValue;
 
 @Path("/organizations")
 @RequestScoped
@@ -43,14 +49,14 @@ public class OrganizationResource {
     @Inject
     OrganizationService organizationService;
     
-    @POST
+/*    @POST
     @Path("/")
     @RolesAllowed({"admin"})
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.TEXT_PLAIN})
     public void createOrganization(OrganizationDto member) {
         memberService.createOrganization(member);
-    }
+    }*/
 
     @GET
     @Path("/")
@@ -117,6 +123,37 @@ public class OrganizationResource {
     public void deleteOrganization(@PathParam("organizationId") String id) {
         memberService.deleteOrganization(id);
     }
+
+    @POST
+    @Path("/create")
+    @RolesAllowed({"admin"})
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void createOrganization(JsonObject values) {
+        Organization organization = new Organization();
+        organization.setName(values.getString("name"));
+        organization.setDescription(values.getString("description"));
+
+        Location location = new Location();
+        location.setStreet(values.getString("street"));
+        location.setCity(values.getString("city"));
+        location.setZipCode(values.getString("zip_code"));
+        location.setCountry(values.getString("country"));
+        location.setLatitude(Double.parseDouble(values.getString("latitude")));
+        location.setLongitude(Double.parseDouble(values.getString("longitude")));
+
+        organization.addLocation(location);
+
+        JsonArray tags = values.getJsonArray("tagsSelect");
+        for(JsonValue tagJson : tags)
+        {
+            JsonObject tagObject = (JsonObject)tagJson;
+            Tag tag = new Tag();
+            tag.setId(tagObject.getString("id"));
+            tag.setName(tagObject.getString("name"));
+            organization.addTag(tag);
+        }
+        memberService.saveOrganization(organization);
+    }
     
     @POST
     @Path("/{organizationId}/tags")
@@ -144,5 +181,6 @@ public class OrganizationResource {
     public void deleteTag(@PathParam("partnerId") String partnerId, @PathParam("tagId") String tagId) {
         organizationService.deleteTag(partnerId, tagId);
     }   
+
 
 }
