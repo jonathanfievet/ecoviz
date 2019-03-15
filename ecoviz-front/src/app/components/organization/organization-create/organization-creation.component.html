@@ -12,43 +12,43 @@ SPDX-License-Identifier: EPL-2.0
       </mat-card>
 
       <mat-card>
-        <form [formGroup]="organizationForm">
+        <form [formGroup]="organizationForm" #f="ngForm" (ngSubmit)="onSubmit(f)">
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="name" type="text" placeholder="Name">
+            <input ngModel matInput formControlName="name" type="text" placeholder="Name">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="description"  type="textarea" placeholder="Description">
+            <input ngModel matInput formControlName="description"  type="textarea" placeholder="Description">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="street"  type="text" placeholder="Street">
+            <input ngModel matInput formControlName="street"  type="text" placeholder="Street">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="city"  type="text" placeholder="City">
+            <input ngModel matInput formControlName="city"  type="text" placeholder="City">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="zip_code"  type="text" placeholder="Zip Code">
+            <input ngModel matInput formControlName="zip_code"  type="text" placeholder="Zip Code">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="country"  type="text" placeholder="Country">
+            <input ngModel matInput formControlName="country"  type="text" placeholder="Country">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="longitude"  type="text" placeholder="Longitude">
+            <input ngModel matInput formControlName="longitude"  type="text" placeholder="Longitude">
           </mat-form-field>
 
 
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="latitude"  type="text" placeholder="Latitude">
+            <input ngModel matInput formControlName="latitude"  type="text" placeholder="Latitude">
           </mat-form-field>
 
 
           <mat-form-field>
-            <mat-select placeholder="Tags" formControlName="tagsSelect" multiple>
+            <mat-select ngModel placeholder="Tags" formControlName="tagsSelect" multiple>
               <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag.name }}</mat-option>
             </mat-select>
           </mat-form-field>
