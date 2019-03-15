@@ -50,6 +50,11 @@ export class OrganizationListComponent implements OnInit {
       }
     });
   }
+
+  redirectToCreate()
+  {
+    this.router.navigate(['organization/create']);
+  }
 }
 
 @Component({
