@@ -15,7 +15,7 @@ declare module 'my-module' {
 
  * If you are using a CommonJS module that is using module.exports then you will have to write your
  * types using export = yourObjectOrFunction with a namespace above it
- * notice how we have to create a namespace that is equal to the function we're
+ * notice how we have to organization-create a namespace that is equal to the function we're
  * assigning the export to
 
 declare module 'jwt-decode' {
@@ -39,7 +39,7 @@ declare var $: any;
 
 import * as _ from 'lodash'
 
- * You can include your type definitions in this file until you create one for the @types
+ * You can include your type definitions in this file until you organization-create one for the @types
  *
  */
 

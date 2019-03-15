@@ -60,11 +60,10 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { defaultSimpleModalOptions } from 'ngx-simple-modal/dist/simple-modal/simple-modal-options';
 import { LoginActivate } from './app.login.provider';
-import { OrganizationCreationComponent } from "./components/organization/create";
-import { OrganizationListComponent } from "./components/organization/organization-list";
+import { OrganizationCreationComponent } from "./components/organization/organization-create";
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import {ConfirmDeleteOrganizationModalComponent, OrganizationListComponent} from "./components/organization/organization-list";
+import { ConfirmDeleteOrganizationModalComponent, OrganizationListComponent} from "./components/organization/organization-list";
 
 
 // Application wide providers

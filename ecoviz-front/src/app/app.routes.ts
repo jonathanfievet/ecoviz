@@ -13,7 +13,7 @@ import { MembersComponent } from './components/members';
 import { NoContentComponent } from './components/no-content';
 import { LoginComponent } from './components/login';
 import { LoginActivate } from './app.login.provider';
-import { OrganizationCreationComponent } from './components/organization/create';
+import { OrganizationCreationComponent } from './components/organization/organization-create';
 import { OrganizationListComponent } from "./components/organization/organization-list";
 
 export const ROUTES: Routes = [

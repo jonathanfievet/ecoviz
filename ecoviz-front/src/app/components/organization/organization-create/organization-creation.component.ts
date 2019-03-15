@@ -11,12 +11,15 @@ import {
     Component,
     OnInit
   } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
 import { TagService } from '../../../services/tag-service';
+import { OrganizationService } from "../../../services/organization-service";
 import { Observable } from 'rxjs';
+import {Organization} from "../../../models/organization";
 
   @Component({
     selector: 'organization-creation',
@@ -30,7 +33,8 @@ import { Observable } from 'rxjs';
 
     constructor(
         private router: Router,
-        private tagService: TagService
+        private tagService: TagService,
+        private organizationService: OrganizationService
     ) {
       this.organizationForm = new FormGroup({
         name: new FormControl(),
@@ -50,6 +54,12 @@ import { Observable } from 'rxjs';
         console.log(tags);
         this.tags = tags;
       });
+    }
+
+    public onSubmit(f: NgForm) {
+      console.log(f.value);
+      this.organizationService.createOrganization(f.value).subscribe((data: any) => console.log("Create an Organization"));
+      this.router.navigate(['organizations']);
     }
 
 }

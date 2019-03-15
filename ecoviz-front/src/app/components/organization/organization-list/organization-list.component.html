@@ -10,8 +10,9 @@ SPDX-License-Identifier: EPL-2.0
 <div class="container">
   <div class="notification">
 
-    <mat-card style="margin-bottom:5px">
+    <mat-card style="margin-bottom:5px; display: flex; justify-content: space-between;">
       <h2>Organizations</h2>
+      <button (click)="redirectToCreate()" mat-raised-button color="primary" style="margin-left:5px">Create</button>
     </mat-card>
 
     <table mat-table [dataSource]="organizations" class="mat-elevation-z8">

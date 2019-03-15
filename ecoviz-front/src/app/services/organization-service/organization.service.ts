@@ -15,6 +15,7 @@ import { Organization } from '../../models/organization';
 import { Tag } from '../../models/tag.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {reject} from "q";
 
 @Injectable()
 export class OrganizationService {
@@ -61,6 +62,11 @@ export class OrganizationService {
     deleteOrganization(member: Organization) {
         return this.http.delete(environment.apiUrl + '/api/organizations/' + member.id);
     }
+
+    createOrganization(values: any) {
+      return this.http.post(environment.apiUrl + '/api/organizations/create', values);
+    }
+
 
     setTags(partnerId: string, tags: Tag[]): Observable<Object> {
         console.log('Updating tags of ' + partnerId, tags);
